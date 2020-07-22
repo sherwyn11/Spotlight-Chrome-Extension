@@ -1,6 +1,6 @@
 # Spotlight-Chrome-Extension <img src="https://img.icons8.com/plasticine/2x/spotify.png" height="40px" width="40px"/>
 
-Highlight over a song name and get it stored in your playlist on Spotify!
+Highlight over a song name and get the song stored in your playlist on Spotify!
 
 ## Demo
 
