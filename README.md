@@ -8,6 +8,6 @@ Highlight over a song name and get it stored in your playlist on Spotify!
 
 ***This project is a work in progress and is made for fun! Enjoy!***
 
-***Only works on Chrome browser:)***
+***Only works on Chrome browser:)**
 
 &copy; Sherwyn D'souza 2020
