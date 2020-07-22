@@ -1,4 +1,4 @@
-# Hilightify-Extension
+# Hilightify-Chrome-Extension
 
 Highlight over a song text and get it stored in your playlist on Spotify!
 
