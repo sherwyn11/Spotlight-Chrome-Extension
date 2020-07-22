@@ -10,4 +10,4 @@ Highlight over a song name and get it stored in your playlist on Spotify!
 
 ***Only works on Chrome browser:)***
 
-&copy; Sherwyn D'souza
+&copy; Sherwyn D'souza 2020
