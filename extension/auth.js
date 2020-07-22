@@ -1,4 +1,5 @@
-console.log('HEreerer');
+console.log('Auth file!');
+
 const CLIENT_ID = '74dd0bc1759e40a291d2aacd457a33ea';
 const button = document.createElement('button');
 const button2 = document.createElement('button');
@@ -19,34 +20,18 @@ input.placeholder = 'Code'
 const input2 = document.createElement('input');
 input2.type = 'text';
 input2.id = 'pid';
-input2.placeholder = 'PID'
-div.append(input);
+input2.placeholder = 'Playlist ID'
+
 div.append(input2);
 div.append(button);
+div.append(document.createElement('br'));
+div.append(input);
 div.append(button2);
 
 
-// async function collectInput(type){
-//     const input = document.createElement('input');
-//     input.type = 'text';
-//     input.id = 'code';
-//     button.innerHTML = 'Login';
-//     button.addEventListener('click', (e) => {
-//         getToken()
-//         .then((response) => {
-//             console.log(response)
-//         })
-//         .catch((e) => {
-//             console.log(e);
-//         })
-//     });
-//     div.append(input);
-//     div.append(button);
-// }
-
 async function getToken(){
     let code = document.getElementById('code').value;
-    const url = 'http://localhost:3000/auth/get-token'
+    const url = 'https://spotify-server-api.herokuapp.com/auth/get-token'
     fetch(url, {
         method: 'POST',
         mode: 'cors',
@@ -62,6 +47,7 @@ async function getToken(){
     .then((response) => {
     response.json().then((data) => {
             localStorage.setItem('token', data.access_token);
+            alert('Token stored!');
         })
         .catch((e) => {
             alert(e);
@@ -74,12 +60,13 @@ async function getToken(){
 
 
 async function getData() {
+    localStorage.clear();
     localStorage.setItem('pid', input2.value);
     window.open('https://accounts.spotify.com/authorize?client_id='+ CLIENT_ID +'&response_type=code&redirect_uri=https://sherwyn11.github.io&scope=playlist-modify-public', '_blank');
 }
 
+
 function getAuth(){
-    console.log('here');
     getData()
     .then((response) => {
         console.log(response);

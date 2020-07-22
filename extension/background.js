@@ -1,13 +1,13 @@
 console.log('Background!');
 
-const pid = localStorage.getItem('pid');
-const token = localStorage.getItem('token');
-
-console.log(pid);
 
 async function getData(query) {
+    const pid = localStorage.getItem('pid');
+    const token = localStorage.getItem('token');
+
     console.log(query)
     const url = 'https://api.spotify.com/v1/search?q=' + query + '&type=track&limit=1';
+    console.log('Token ' + token);
     const response = await fetch(url, {
         method: 'GET',
         mode: 'cors',
@@ -44,6 +44,8 @@ async function storeInUserPlaylist(pid, uri, token){
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
+        const pid = localStorage.getItem('pid');
+        const token = localStorage.getItem('token');
         var query = request.selectedText;
         console.log(query)
         getData(query)
