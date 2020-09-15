@@ -27,8 +27,9 @@ async function sendPostRequest(code) {
         })
     })
     .catch((e) => {
-        throw new Error(e);
-    })
+        console.log(e);
+        return new Promise.reject('No Access Token!');
+    });
 }
 
 const getUserToken = async (req, res) => {
