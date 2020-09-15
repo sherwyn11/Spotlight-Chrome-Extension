@@ -31,7 +31,8 @@ div.append(button2);
 
 async function getToken(){
     let code = document.getElementById('code').value;
-    const url = 'https://spotify-server-api.herokuapp.com/auth/get-token'
+    // const url = 'https://spotify-server-api.herokuapp.com/auth/get-token'
+    const url = 'http://localhost:3000/auth/get-token';
     fetch(url, {
         method: 'POST',
         mode: 'cors',
@@ -62,7 +63,7 @@ async function getToken(){
 async function getData() {
     localStorage.clear();
     localStorage.setItem('pid', input2.value);
-    window.open('https://accounts.spotify.com/authorize?client_id='+ CLIENT_ID +'&response_type=code&redirect_uri=https://spotify-server-api.herokuapp.com/auth&scope=playlist-modify-public', '_blank');
+    window.open('https://accounts.spotify.com/authorize?client_id='+ CLIENT_ID +'&response_type=code&redirect_uri=https://spotify-server-api.herokuapp.com/auth/&scope=playlist-modify-public', '_blank');
 }
 
 

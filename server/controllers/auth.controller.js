@@ -3,12 +3,11 @@ const axios = require('axios');
 const qs = require('qs');
 
 async function sendPostRequest(code) {
-    console.log(code);
     const url = 'https://accounts.spotify.com/api/token';
     var data = {
         'grant_type': 'authorization_code',
         'code': code,
-        'redirect_uri': 'https://spotify-server-api.herokuapp.com/auth',
+        'redirect_uri': 'https://spotify-server-api.herokuapp.com/auth/',
     }
     var headers = {
         'Authorization': `Basic ${process.env.BASE64STR}`,
@@ -29,7 +28,7 @@ async function sendPostRequest(code) {
     })
     .catch((e) => {
         console.log(e);
-        return new Promise.reject('No Access Token!');
+        return Promise.reject('No Access Token!');
     });
 }
 
