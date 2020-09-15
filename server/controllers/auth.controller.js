@@ -7,7 +7,7 @@ async function sendPostRequest(code) {
     var data = {
         'grant_type': 'authorization_code',
         'code': code,
-        'redirect_uri': 'https://spotify-server-api.herokuapp.com/',
+        'redirect_uri': 'https://spotify-server-api.herokuapp.com/auth/',
     }
     var headers = {
         'Authorization': `Basic ${process.env.BASE64STR}`,

@@ -62,7 +62,7 @@ async function getToken(){
 async function getData() {
     localStorage.clear();
     localStorage.setItem('pid', input2.value);
-    window.open('https://accounts.spotify.com/authorize?client_id='+ CLIENT_ID +'&response_type=code&redirect_uri=https://sherwyn11.github.io&scope=playlist-modify-public', '_blank');
+    window.open('https://accounts.spotify.com/authorize?client_id='+ CLIENT_ID +'&response_type=code&redirect_uri=https://spotify-server-api.herokuapp.com/auth&scope=playlist-modify-public', '_blank');
 }
 
 
