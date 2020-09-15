@@ -31,8 +31,8 @@ div.append(button2);
 
 async function getToken(){
     let code = document.getElementById('code').value;
-    // const url = 'https://spotify-server-api.herokuapp.com/auth/get-token'
-    const url = 'http://localhost:3000/auth/get-token';
+    const url = 'https://spotify-server-api.herokuapp.com/auth/get-token'
+    // const url = 'http://localhost:3000/auth/get-token';
     fetch(url, {
         method: 'POST',
         mode: 'cors',

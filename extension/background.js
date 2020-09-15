@@ -49,9 +49,13 @@ chrome.runtime.onMessage.addListener(
         var query = request.selectedText;
         console.log(query)
         getData(query)
-        .then(data => {
+        .then(async(data) => {
             var uri = data.tracks.items[0].uri;
-            storeInUserPlaylist(pid, uri, token);
+            await storeInUserPlaylist(pid, uri, token);
+            alert('Saved in your playlist!')
+        })
+        .catch((e) => {
+            alert('Some error occurred!')
         })
     }
 );
