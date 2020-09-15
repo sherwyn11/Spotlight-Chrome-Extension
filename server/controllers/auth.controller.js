@@ -3,6 +3,7 @@ const axios = require('axios');
 const qs = require('qs');
 
 async function sendPostRequest(code) {
+    console.log(code);
     const url = 'https://accounts.spotify.com/api/token';
     var data = {
         'grant_type': 'authorization_code',
