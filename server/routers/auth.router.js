@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { getUserToken } = require('../controllers/auth.controller');
+const { getUserToken, showCodeToUser } = require('../controllers/auth.controller');
+
+router.get('/', showCodeToUser);
 
 router.post('/get-token', getUserToken);
 

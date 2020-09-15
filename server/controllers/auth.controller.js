@@ -2,12 +2,12 @@ require('dotenv').config();
 const axios = require('axios');
 const qs = require('qs');
 
-async function sendPostRequest(code){
+async function sendPostRequest(code) {
     const url = 'https://accounts.spotify.com/api/token';
     var data = {
         'grant_type': 'authorization_code',
         'code': code,
-        'redirect_uri': 'https://sherwyn11.github.io',
+        'redirect_uri': 'https://spotify-server-api.herokuapp.com/',
     }
     var headers = {
         'Authorization': `Basic ${process.env.BASE64STR}`,
@@ -31,7 +31,7 @@ async function sendPostRequest(code){
     })
 }
 
-const getUserToken = async(req, res) => {
+const getUserToken = async (req, res) => {
     const code = req.body.code;
     var response = await sendPostRequest(code);
     res.status(200).send({
@@ -39,4 +39,9 @@ const getUserToken = async(req, res) => {
     });
 }
 
-module.exports = { getUserToken };
+const showCodeToUser = async (req, res) => {
+    console.log(req.query['code']);
+    res.send(req.query['code']);
+}
+
+module.exports = { getUserToken, showCodeToUser };
