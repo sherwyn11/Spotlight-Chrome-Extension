@@ -40,8 +40,7 @@ const getUserToken = async (req, res) => {
 }
 
 const showCodeToUser = async (req, res) => {
-    console.log(req.query['code']);
-    res.send(req.query['code']);
+    res.send(`<h1>Hello User!</h1><p>Your requested Access Token is: ${req.query['code']}</p><p>Please paste the token in the code dialog box!</p><p><i>Have fun!</i></p>`);
 }
 
 module.exports = { getUserToken, showCodeToUser };
