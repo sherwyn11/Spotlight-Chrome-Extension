@@ -5,7 +5,7 @@ async function getData(query) {
     const pid = localStorage.getItem('pid');
     const token = localStorage.getItem('token');
 
-    console.log(query)
+    console.log(query);
     const url = 'https://api.spotify.com/v1/search?q=' + query + '&type=track&limit=1';
     console.log('Token ' + token);
     const response = await fetch(url, {
