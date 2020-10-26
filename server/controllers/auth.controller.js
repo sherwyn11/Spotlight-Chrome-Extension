@@ -27,8 +27,7 @@ async function sendPostRequest(code) {
         })
     })
     .catch((e) => {
-        console.log(e);
-        return Promise.reject('No Access Token!');
+        return Promise.reject('No Access Token! ' + e);
     });
 }
 
@@ -41,7 +40,7 @@ const getUserToken = async (req, res) => {
 }
 
 const showCodeToUser = async (req, res) => {
-    res.send(`<h1>Hello User!</h1><p>Your requested Access Token is: ${req.query['code']}</p><p>Please paste the token in the code dialog box!</p><p><i>Have fun!</i></p>`);
+    res.send(`<h1>Hello User!</h1><p>Your requested Access Code is: ${req.query['code']}</p><p>Please paste the code in the <b>Code</b> box of the Spotlight Chrome Extension!</p><p><i>Have fun!</i></p>`);
 }
 
 module.exports = { getUserToken, showCodeToUser };
