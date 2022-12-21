@@ -7,7 +7,7 @@ async function sendPostRequest(code) {
     var data = {
         'grant_type': 'authorization_code',
         'code': code,
-        'redirect_uri': 'https://spotify-server-api.herokuapp.com/auth/',
+        'redirect_uri': 'http://localhost:3000/auth/',
     }
     var headers = {
         'Authorization': `Basic ${process.env.BASE64STR}`,
@@ -17,18 +17,18 @@ async function sendPostRequest(code) {
     return axios.post(url, qs.stringify(data), {
         headers: headers
     })
-    .then((response) => {
-        return new Promise((resolve, reject) => {
-            if (response.data.access_token !== undefined){
-                resolve(response.data.access_token);
-            }else{
-                reject('No Access Token!');
-            }
+        .then((response) => {
+            return new Promise((resolve, reject) => {
+                if (response.data.access_token !== undefined) {
+                    resolve(response.data.access_token);
+                } else {
+                    reject('No Access Token!');
+                }
+            })
         })
-    })
-    .catch((e) => {
-        return Promise.reject('No Access Token! ' + e);
-    });
+        .catch((e) => {
+            return Promise.reject('No Access Token! ' + e);
+        });
 }
 
 const getUserToken = async (req, res) => {

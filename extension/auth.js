@@ -29,49 +29,49 @@ div.append(input);
 div.append(button2);
 
 
-async function getToken(){
+async function getToken() {
     let code = document.getElementById('code').value;
-    const url = 'https://spotify-server-api.herokuapp.com/auth/get-token'
+    const url = 'http://localhost:3000/auth/get-token'
     fetch(url, {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow',
-        referrerPolicy: 'no-referrer', 
+        referrerPolicy: 'no-referrer',
         body: 'code=' + code
     })
-    .then((response) => {
-    response.json().then((data) => {
-            localStorage.setItem('token', data.access_token);
-            alert('Token stored!');
+        .then((response) => {
+            response.json().then((data) => {
+                localStorage.setItem('token', data.access_token);
+                alert('Token stored!');
+            })
+                .catch((e) => {
+                    alert(e);
+                })
         })
         .catch((e) => {
             alert(e);
         })
-    })
-    .catch((e) => {
-        alert(e);
-    })
 }
 
 
 async function getData() {
     localStorage.clear();
     localStorage.setItem('pid', input2.value);
-    window.open('https://accounts.spotify.com/authorize?client_id='+ CLIENT_ID +'&response_type=code&redirect_uri=https://spotify-server-api.herokuapp.com/auth/&scope=playlist-modify-public', '_blank');
+    window.open('https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID + '&response_type=code&redirect_uri=http://localhost:3000/auth/&scope=playlist-modify-public', '_blank');
 }
 
 
-function getAuth(){
+function getAuth() {
     getData()
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((e) => {
-        console.log(e);
-    })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((e) => {
+            console.log(e);
+        })
 }
